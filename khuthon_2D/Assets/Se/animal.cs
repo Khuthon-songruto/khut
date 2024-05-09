@@ -13,6 +13,8 @@ public class animal : MonoBehaviour
     public AudioSource animalAppear;
     public GameObject animals;
     
+
+
     // Update is called once per frame
     void Update()
     {
