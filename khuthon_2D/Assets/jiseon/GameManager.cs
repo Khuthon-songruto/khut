@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -24,15 +26,40 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    private static GameManager instance;
     private float environment, capital, reputation, staff;
     float time, realtime;
     int day; // 시간(9~6)과 날짜
     // 시간은 1~10 9to6
     bool gameover, gamestart;
     int rangetime;
+    public Pop Popup;
 
     void Start()
     {
+        // 이전 씬에서 게임 매니저가 이미 생성되었는지 확인하고, 이미 있다면 현재 씬에서 생성된 것을 파괴
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        // 게임 매니저를 씬 전환 시 파괴되지 않도록 설정
+        DontDestroyOnLoad(gameObject);
+
+        // 현재 씬이 로드될 때 호출되는 이벤트에 함수 등록
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 다음 씬으로 넘어갈 때 게임 매니저를 비활성화
+        gameObject.SetActive(false);
+            time = 0;
+            gamestart = true;
+    }
+
+    DontDestroyOnLoad(Popup);
         environment = 100; // 자연
         capital = 50; // 자본
         reputation = 50; // 회사의 명성
@@ -46,6 +73,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         time_start();
+
+        if (time >= 74.8f) // 예시로 하루가 75f까지로 가정
+        {
+            EndOfDay();
+        }
     }
     
     void time_start()
@@ -79,7 +111,20 @@ public class GameManager : MonoBehaviour
             gameover = true;
         }
     }
+    void EndOfDay()
+    {
+        // EndOfDay 함수가 호출된 후 1초 뒤에 팝업을 표시
+        StartCoroutine(ShowPopupAfterDelay(1f));
+    }
 
+    IEnumerator ShowPopupAfterDelay(float delay)
+    {
+        // delay 시간만큼 대기
+        yield return new WaitForSeconds(delay);
+
+        // 팝업을 표시
+        Popup.Show();
+    }
 
 
     #region getter setter code

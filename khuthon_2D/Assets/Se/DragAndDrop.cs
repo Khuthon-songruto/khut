@@ -20,7 +20,7 @@ public class DragAndDrop : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject != stamp )
             {
                 stamp = hit.collider.gameObject;
-                stamp.isMove = true;
+                //stamp.isMove = true;
             }
         }
     }
