@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
     float time, realtime;
     int day; // 시간(9~6)과 날짜
     // 시간은 1~10 9to6
-    bool gameover, gamestart;
+    // bool gameover;
+    bool gamestart;
     int rangetime;
     public Pop Popup;
     public bool yesStamp = false;
@@ -135,7 +136,7 @@ public class GameManager : MonoBehaviour
     {
         if (environment == 0 || capital == 0 || reputation == 0 || staff==0)
         {
-            gameover = true;
+            // gameover = true;
         }
     }
     void EndOfDay()
