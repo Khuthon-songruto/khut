@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         staff = 50; // 직원 수
         time = 0f; // 9 to 6
         realtime = 0f; // 현재 시간
-        rangetime = 3; // 시계(time +1) 넘어가는 시간
+        rangetime = 2; // 시계(time +1) 넘어가는 시간
         gamestart = true; 
     }
     private void OnEnable()

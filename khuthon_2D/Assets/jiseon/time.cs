@@ -56,8 +56,8 @@ public class time : MonoBehaviour
         {
             watch_image.fillAmount = Mathf.Lerp(watch_image.fillAmount, (clock_/100), Time.deltaTime*10);
         }
-        int day = GameManager.Instance.get_day();
-        daytext.text = day.ToString();
+        // int day = GameManager.Instance.get_day();
+        // daytext.text = day.ToString();
     }
 
     public void changeset()

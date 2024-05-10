@@ -8,9 +8,9 @@ using UnityEngine;
 public class employeeEnter : MonoBehaviour
 {
     //게임매니저에서 bool 따로 코드 만들고, colly -> 겜메 -> 
-    Vector2 destination1 = new Vector2(-3, 0);
-    Vector2 destination2 = new Vector2(0, -8);
-    Vector2 firstVec = new Vector2(-7, 0);
+    public Vector2 destination1 = new Vector2(-3f, 0f);
+    public Vector2 destination2 = new Vector2(0f, -8f);
+    public Vector2 firstVec = new Vector2(-7f, 0f);
     public GameObject doc;
     public GameObject animals;
     public GameObject makeDoc;
@@ -20,7 +20,6 @@ public class employeeEnter : MonoBehaviour
 
     [SerializeField]
     public TextMeshPro[] text;
-    public TextMeshPro[] gauge;
     //public AudioSource animalAppear;
     //public AudioSource docAppear;
 
