@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     int rangetime;
     public Pop Popup;
 
+
     void Start()
     {
         // 이전 씬에서 게임 매니저가 이미 생성되었는지 확인하고, 이미 있다면 현재 씬에서 생성된 것을 파괴
@@ -53,11 +54,17 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 다음 씬으로 넘어갈 때 게임 매니저를 비활성화
-        gameObject.SetActive(false);
-            time = 0;
-            gamestart = true;
-    }
+            // 현재 씬이 메인 씬이 아니라면 게임 매니저를 활성화합니다.
+            if (scene.name != "Main")
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(true);
+                Popup.Hide();
+            }
+        }
 
     DontDestroyOnLoad(Popup);
         environment = 100; // 자연
@@ -68,6 +75,23 @@ public class GameManager : MonoBehaviour
         realtime = 0f; // 현재 시간
         rangetime = 1; // 시계(time +1) 넘어가는 시간
         gamestart = true; 
+    }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        gameObject.SetActive(true); // 씬이 로드될 때 GameManager를 활성화합니다.
+        time = 0f;
+        day = 0;
+        gamestart = true;
     }
 
     void Update()
