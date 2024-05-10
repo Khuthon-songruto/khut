@@ -1,1 +1,5 @@
 .dylib filter=lfs diff=lfs merge=lfs -text
+README.md filter=lfs diff=lfs merge=lfs -text
+khuthon filter=lfs diff=lfs merge=lfs -text
+khuthon_2D filter=lfs diff=lfs merge=lfs -text
+khuthonn filter=lfs diff=lfs merge=lfs -text
