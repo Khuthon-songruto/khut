@@ -10,43 +10,44 @@ public class employeeEnter : MonoBehaviour
     //게임매니저에서 bool 따로 코드 만들고, colly -> 겜메 -> 
     Vector2 destination1 = new Vector2(-3, 0);
     Vector2 destination2 = new Vector2(0, -8);
-    Vector2 destination3 = new Vector2(15, 0);
-    Vector3 spawnPosition = new Vector3(0f, 0f, 0f);
+    Vector2 firstVec = new Vector2(-7, 0);
     public GameObject doc;
     public GameObject animals;
     public GameObject makeDoc;
     public int speed;
     public bool isStamped = false;
-    private int currentTextIndex = 0;
 
     [SerializeField]
     public TextMeshPro[] text;
     //public AudioSource animalAppear;
     //public AudioSource docAppear;
 
-    private void Update()
+    private void Start()
     {
         StartCoroutine(aniDocApp());
+    }
+    private void Update()
+    {
+        
         if (Input.GetMouseButtonDown(0)) // 왼쪽 마우스 버튼 클릭 여부 확인
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
-            
 
             if (hit.collider != null && hit.collider.gameObject == doc) // Doc 오브젝트를 클릭했는지 확인
             {
                 // makeDoc 오브젝트를 생성
                 makeDoc.SetActive(true);
-
                 doc.SetActive(false);
+
             }
         }
 
         if (GameManager.Instance.yesStamp == true || GameManager.Instance.noStamp == true)
         {
+            StopCoroutine(aniDocApp());
             if (!isStamped)
             {
-                StopCoroutine(aniDocApp());
                 Debug.Log("bb");
                 StartCoroutine(aniDocDisapp());
                 isStamped = true;
@@ -61,20 +62,20 @@ public class employeeEnter : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         doc.transform.position = Vector3.MoveTowards(doc.transform.position, destination2, speed * Time.deltaTime);
 
-        
     }
 
     IEnumerator aniDocDisapp()
     {
+
         yield return new WaitForSeconds(1.5f);
         animals.SetActive(false);
         //ield return new WaitForSeconds(0.5f);
         makeDoc.SetActive(false);
 
         // 여기서 몇 초 기다린 후 초기화 및 aniDocApp() 다시 시작
+        animals.transform.position = firstVec;
         yield return new WaitForSeconds(1.0f); // 예를 들어 3초 후에 초기화 및 재시작한다고 가정
         ResetVariables(); // 모든 변수를 초기화하는 메소드 호출
-        StartCoroutine(aniDocApp()); // aniDocApp 코루틴 다시 시작
 
     }
 
@@ -87,15 +88,16 @@ public class employeeEnter : MonoBehaviour
         makeDoc.SetActive(false);
         GameManager.Instance.yesStamp = false;
         GameManager.Instance.noStamp = false;
+
         UpdateTextIndex();
     }
 
     void UpdateTextIndex()
     {
-        currentTextIndex++; // 다음 텍스트 요소로 인덱스 업데이트
-        if (currentTextIndex >= text.Length) // 배열의 끝에 도달했으면 처음부터 다시 시작
+        GameManager.Instance.currentTextIndex++; // 다음 텍스트 요소로 인덱스 업데이트
+        if (GameManager.Instance.currentTextIndex >= text.Length) // 배열의 끝에 도달했으면 처음부터 다시 시작
         {
-            currentTextIndex = 0;
+            GameManager.Instance.currentTextIndex = 0;
         }
 
         // 모든 텍스트 요소를 비활성화
@@ -105,6 +107,6 @@ public class employeeEnter : MonoBehaviour
         }
 
         // 현재 인덱스의 텍스트 요소만 활성화
-        text[currentTextIndex].gameObject.SetActive(true);
+        text[GameManager.Instance.currentTextIndex].gameObject.SetActive(true);
     }
 }

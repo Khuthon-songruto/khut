@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     #region singletone
     public static GameManager Instance = null;
+    public int currentTextIndex = 0;
     private void Awake()
     {
         if (Instance == null)
