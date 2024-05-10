@@ -1,27 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DragAndDrop : MonoBehaviour
+public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    private Vector2 firstTouch;
-    GameObject stamp;
-    GameObject square;
+    public static Vector2 DefaultPos;
+    public static bool collN = false;
+    public bool okN = false;
 
-
-    private void Update()
+    void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            firstTouch = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Ray2D ray2D = new Ray2D(firstTouch, Vector2.zero);
-            RaycastHit2D hit = Physics2D.Raycast(ray2D.origin, ray2D.direction);
 
-            if (hit.collider != null && hit.collider.gameObject != stamp )
+    }
+    void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
+    {
+        DefaultPos = this.transform.position;
+    }
+
+    void IDragHandler.OnDrag(PointerEventData eventData)
+    {
+        Vector2 currentPos = eventData.position;
+        this.transform.position = currentPos;
+
+        if (currentPos.x >= 1200 && currentPos.x <= 1600 && currentPos.y >= 600 && currentPos.y <= 800)
+        {
+            if (!okN)
             {
-                stamp = hit.collider.gameObject;
-                //stamp.isMove = true;
+                collN = true;
+                okN = true;
             }
+
         }
+    }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        StartCoroutine(StayInPlaceForASecond());
+    }
+
+    IEnumerator StayInPlaceForASecond()
+    {
+        yield return new WaitForSeconds(1f);
+        transform.position = DefaultPos;
     }
 }
