@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     #region singletone
     public static GameManager Instance = null;
     public int currentTextIndex = 0;
+    public employeeEnter empent;
     private void Awake()
     {
         if (Instance == null)
@@ -139,6 +140,10 @@ public class GameManager : MonoBehaviour
     }
     void EndOfDay()
     {
+        if (empent != null)
+        {
+            empent.StopAction(); // 멈추고자 하는 스크립트의 StopAction 함수 호출
+        }
         // EndOfDay 함수가 호출된 후 1초 뒤에 팝업을 표시
         StartCoroutine(ShowPopupAfterDelay(1f));
     }

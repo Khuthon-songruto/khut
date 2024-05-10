@@ -16,6 +16,7 @@ public class employeeEnter : MonoBehaviour
     public GameObject makeDoc;
     public int speed;
     public bool isStamped = false;
+    public bool isRunning = true;
 
     [SerializeField]
     public TextMeshPro[] text;
@@ -28,7 +29,14 @@ public class employeeEnter : MonoBehaviour
     }
     private void Update()
     {
-        
+        if (!isRunning) // isRunning이 false면 아래의 코드는 실행되지 않음
+        {
+            doc.SetActive(false);
+            animals.SetActive(false);
+            makeDoc.SetActive(false);
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0)) // 왼쪽 마우스 버튼 클릭 여부 확인
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -55,6 +63,10 @@ public class employeeEnter : MonoBehaviour
 
         }
     }
+    public void StopAction()
+    {
+        isRunning = false;
+    }
 
     IEnumerator aniDocApp()
     {
@@ -67,7 +79,7 @@ public class employeeEnter : MonoBehaviour
     IEnumerator aniDocDisapp()
     {
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         animals.SetActive(false);
         //ield return new WaitForSeconds(0.5f);
         makeDoc.SetActive(false);

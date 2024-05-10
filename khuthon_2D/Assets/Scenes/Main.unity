@@ -411,6 +411,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73913081}
   m_CullTransparentMesh: 1
+--- !u!1 &76721042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76721043}
+  - component: {fileID: 76721044}
+  m_Layer: 0
+  m_Name: buttonControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &76721043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76721042}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 71.90979, y: 220.61816, z: -3.170868}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 761435592}
+  - {fileID: 515469597}
+  m_Father: {fileID: 1780341967}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76721044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76721042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf86f8f57bbd89847bd540ed583e3809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  makeDoc: {fileID: 2146665969}
+  YButton: {fileID: 761435594}
+  NButton: {fileID: 515469599}
 --- !u!1 &105361544
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTextIndex: 0
+  empent: {fileID: 1983503846}
   Popup: {fileID: 609984630}
   yesStamp: 0
   noStamp: 0
@@ -1555,6 +1605,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460879786}
   m_CullTransparentMesh: 1
+--- !u!1 &480021277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 480021279}
+  - component: {fileID: 480021278}
+  m_Layer: 0
+  m_Name: officeBackground_Night
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!212 &480021278
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480021277}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -5
+  m_Sprite: {fileID: 21300000, guid: 649f2580a8cc67247b499bcd6dcee7cc, type: 3}
+  m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 7.35, y: 3.95}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &480021279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480021277}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.01, y: 0.17, z: 0}
+  m_LocalScale: {x: 2.4463086, y: 2.6975877, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &488030075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,14 +2039,13 @@ GameObject:
   - component: {fileID: 515469601}
   - component: {fileID: 515469600}
   - component: {fileID: 515469599}
-  - component: {fileID: 515469598}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: NoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &515469597
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1921,30 +2054,18 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515469596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3.170868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 13493412}
-  m_Father: {fileID: 1780341967}
+  m_Father: {fileID: 76721043}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 717, y: 267}
+  m_AnchoredPosition: {x: 645.0902, y: 46.381836}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &515469598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515469596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf86f8f57bbd89847bd540ed583e3809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &515469599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1989,7 +2110,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 515469598}
+      - m_Target: {fileID: 76721044}
         m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: clickNo
         m_Mode: 1
@@ -2186,7 +2307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31a50caec90ff248916387f5199dc7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 1659867581}
 --- !u!1 &620209714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,14 +2873,13 @@ GameObject:
   - component: {fileID: 761435596}
   - component: {fileID: 761435595}
   - component: {fileID: 761435594}
-  - component: {fileID: 761435593}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: YesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &761435592
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2769,30 +2888,18 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761435591}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3.170868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 988793101}
-  m_Father: {fileID: 1780341967}
+  m_Father: {fileID: 76721043}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 720, y: 409}
+  m_AnchoredPosition: {x: 648.0902, y: 188.38184}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &761435593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761435591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf86f8f57bbd89847bd540ed583e3809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &761435594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2837,7 +2944,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 761435593}
+      - m_Target: {fileID: 76721044}
         m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
         m_MethodName: clickYes
         m_Mode: 1
@@ -5614,7 +5721,7 @@ GameObject:
   - component: {fileID: 1659867583}
   - component: {fileID: 1659867582}
   m_Layer: 0
-  m_Name: officeBackground
+  m_Name: officeBackground_Day
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5803,8 +5910,7 @@ RectTransform:
   - {fileID: 1611773610}
   - {fileID: 59095808}
   - {fileID: 437110437}
-  - {fileID: 761435592}
-  - {fileID: 515469597}
+  - {fileID: 76721043}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6178,12 +6284,14 @@ MonoBehaviour:
   makeDoc: {fileID: 2146665969}
   speed: 50
   isStamped: 0
+  isRunning: 1
   text:
   - {fileID: 1474803993}
   - {fileID: 1002164806}
   - {fileID: 1591283279}
   - {fileID: 1280158083}
   - {fileID: 1328791576}
+  - {fileID: 379753102}
 --- !u!4 &1983503847
 Transform:
   m_ObjectHideFlags: 0
@@ -6947,5 +7055,6 @@ SceneRoots:
   - {fileID: 560086670}
   - {fileID: 105361546}
   - {fileID: 402455891}
+  - {fileID: 480021279}
   - {fileID: 1659867583}
   - {fileID: 1983503847}
