@@ -39,9 +39,6 @@ public class GameManager : MonoBehaviour
     public bool yesStamp = false;
     public bool noStamp = false;
 
-
-    public GameObject bankruptcy;
-
     void Start()
     {
         // 이전 씬에서 게임 매니저가 이미 생성되었는지 확인하고, 이미 있다면 현재 씬에서 생성된 것을 파괴
@@ -108,8 +105,6 @@ public class GameManager : MonoBehaviour
         {
             EndOfDay();
         }
-
-        isgamevoer();
     }
     
     void time_start()
@@ -141,7 +136,6 @@ public class GameManager : MonoBehaviour
         if (environment == 0 || capital == 0 || reputation == 0 || staff==0)
         {
             gameover = true;
-            bankruptcy.SetActive(true);
         }
     }
     void EndOfDay()
