@@ -20,6 +20,7 @@ public class employeeEnter : MonoBehaviour
 
     [SerializeField]
     public TextMeshPro[] text;
+    public TextMeshPro[] gauge;
     //public AudioSource animalAppear;
     //public AudioSource docAppear;
 

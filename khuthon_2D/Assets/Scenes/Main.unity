@@ -6292,6 +6292,7 @@ MonoBehaviour:
   - {fileID: 1280158083}
   - {fileID: 1328791576}
   - {fileID: 379753102}
+  gauge: []
 --- !u!4 &1983503847
 Transform:
   m_ObjectHideFlags: 0
