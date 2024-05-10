@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
     public int currentTextIndex = 0;
     public employeeEnter empent;
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -33,12 +35,13 @@ public class GameManager : MonoBehaviour
     float time, realtime;
     int day; // 시간(9~6)과 날짜
     // 시간은 1~10 9to6
-    // bool gameover;
+    bool gameover;
     bool gamestart;
     int rangetime;
     public Pop Popup;
     public bool yesStamp = false;
     public bool noStamp = false;
+    public GameObject endpanel;
 
     void Start()
     {
@@ -77,7 +80,7 @@ public class GameManager : MonoBehaviour
         staff = 50; // 직원 수
         time = 0f; // 9 to 6
         realtime = 0f; // 현재 시간
-        rangetime = 1; // 시계(time +1) 넘어가는 시간
+        rangetime = 3; // 시계(time +1) 넘어가는 시간
         gamestart = true; 
     }
     private void OnEnable()
@@ -106,6 +109,8 @@ public class GameManager : MonoBehaviour
         {
             EndOfDay();
         }
+
+        isgamevoer();
     }
     
     void time_start()
@@ -119,7 +124,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 realtime = 0f;
-                if(time < 75f) time += 8.33f;
+                if (time < 75f) time += 8.33f;
                 if (time >= 74.9f)
                 {
                     day += 1;
@@ -136,7 +141,8 @@ public class GameManager : MonoBehaviour
     {
         if (environment == 0 || capital == 0 || reputation == 0 || staff==0)
         {
-            // gameover = true;
+            gameover = true;
+            endpanel.SetActive(true);
         }
     }
     void EndOfDay()
@@ -181,6 +187,22 @@ public class GameManager : MonoBehaviour
         if (this.staff >= 0 && this.staff > staff) this.staff = this.staff - staff;
         else this.staff = 0;
     }
+
+    public void set_all(int environment, int capital, int reputation, int staff)
+    {
+        if (this.environment >= 0 && this.environment > environment) this.environment = this.environment - environment;
+        else this.environment = 0;
+
+        if (this.capital >= 0 && this.capital > capital) this.capital = this.capital - capital;
+        else this.capital = 0;
+
+        if (this.reputation >= 0 && this.reputation > reputation) this.reputation = this.reputation - reputation;
+        else this.reputation = 0;
+
+        if (this.staff >= 0 && this.staff > staff) this.staff = this.staff - staff;
+        else this.staff = 0;
+    }
+
 
     public float get_environment()
     {

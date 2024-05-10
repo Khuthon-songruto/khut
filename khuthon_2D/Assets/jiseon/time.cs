@@ -19,7 +19,7 @@ public class time : MonoBehaviour
     Image watch_image;
 
     public TextMeshProUGUI daytext;
-
+    public float decreaseSpeed = 30f;
     void Start()
     {
         env_currentHP = GameManager.Instance.get_environment();
@@ -43,6 +43,10 @@ public class time : MonoBehaviour
         stf_currentHP = GameManager.Instance.get_staff();
         clock_ = GameManager.Instance.get_time();
 
+        //env_slider.value = Mathf.Lerp(env_slider.value,( env_currentHP / 100 ), Time.deltaTime*decreaseSpeed);
+        //cap_slider.value = Mathf.Lerp(cap_slider.value,(cap_currentHP / 100), Time.deltaTime * decreaseSpeed);
+        //rep_slider.value = Mathf.Lerp(rep_slider.value,( rep_currentHP / 100), Time.deltaTime * decreaseSpeed);
+        //stf_slider.value = Mathf.Lerp(stf_slider.value, ( stf_currentHP / 100), Time.deltaTime*decreaseSpeed);
         env_slider.value = env_currentHP / 100;
         cap_slider.value = cap_currentHP / 100;
         rep_slider.value = rep_currentHP / 100;
@@ -50,7 +54,7 @@ public class time : MonoBehaviour
 
         if(watch_image.fillAmount <= 100)
         {
-            watch_image.fillAmount = clock_/100;
+            watch_image.fillAmount = Mathf.Lerp(watch_image.fillAmount, (clock_/100), Time.deltaTime*10);
         }
         int day = GameManager.Instance.get_day();
         daytext.text = day.ToString();
@@ -59,6 +63,7 @@ public class time : MonoBehaviour
     public void changeset()
     {
         GameManager.Instance.set_environment(10);
+        Debug.Log(GameManager.Instance.get_environment());
     }
 
 

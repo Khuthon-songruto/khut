@@ -26,6 +26,7 @@ public class employeeEnter : MonoBehaviour
 
     private void Start()
     {
+
         StartCoroutine(aniDocApp());
     }
     private void Update()
@@ -61,6 +62,17 @@ public class employeeEnter : MonoBehaviour
                 StartCoroutine(aniDocDisapp());
                 isStamped = true;
             }
+            if (GameManager.Instance.yesStamp == true)
+            {
+                gaugemake();
+                GameManager.Instance.yesStamp = false;
+            }
+            if (GameManager.Instance.yesStamp == false)
+            {
+                gaugemake2();
+                GameManager.Instance.noStamp = false;
+            }
+
 
         }
     }
@@ -101,12 +113,70 @@ public class employeeEnter : MonoBehaviour
         makeDoc.SetActive(false);
         GameManager.Instance.yesStamp = false;
         GameManager.Instance.noStamp = false;
-
         UpdateTextIndex();
     }
+    void gaugemake()
+    {
+        if (GameManager.Instance.currentTextIndex == 0)
+        {
+            Debug.Log("2");
+            GameManager.Instance.set_all(-13, 20, -20, -20);
+        }
+        if (GameManager.Instance.currentTextIndex == 1)
+        {
+            Debug.Log("3");
+            GameManager.Instance.set_all(20, -25, 20, 15);
+        }
+        if (GameManager.Instance.currentTextIndex == 2)
+        {
+            GameManager.Instance.set_all(-20, 25, -20, -10);
+        }
+        if (GameManager.Instance.currentTextIndex == 3)
+        {
+            GameManager.Instance.set_all(20, -20, 20, 20);
+        }
+        if (GameManager.Instance.currentTextIndex == 4)
+        {
+            GameManager.Instance.set_all(-15, 20, -10, -5);
+        }
+        if (GameManager.Instance.currentTextIndex == 5)
+        {
+            GameManager.Instance.set_all(-15, 10, -10, -10);
+        }
+    }
 
+    void gaugemake2()
+    {
+        if (GameManager.Instance.currentTextIndex == 0)
+        {
+            GameManager.Instance.set_all(0, 40, 0, 0);
+        }
+        if (GameManager.Instance.currentTextIndex == 1)
+        {
+            GameManager.Instance.set_all(-20, 0, -15, 0);
+        }
+        if (GameManager.Instance.currentTextIndex == 2)
+        {
+            GameManager.Instance.set_all(15, 0, 0, 0);
+        }
+        if (GameManager.Instance.currentTextIndex == 3)
+        {
+            GameManager.Instance.set_all(-20, 0, 0, 0);
+        }
+        if (GameManager.Instance.currentTextIndex == 4)
+        {
+            GameManager.Instance.set_all(0, 15, 15, 10);
+        }
+        if (GameManager.Instance.currentTextIndex == 5)
+        {
+            GameManager.Instance.set_all(15, 0, 10, 10);
+        }
+    }
     void UpdateTextIndex()
     {
+        
+    
+        
         GameManager.Instance.currentTextIndex++; // 다음 텍스트 요소로 인덱스 업데이트
         if (GameManager.Instance.currentTextIndex >= text.Length) // 배열의 끝에 도달했으면 처음부터 다시 시작
         {
