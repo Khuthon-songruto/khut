@@ -357,7 +357,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576689761}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c86da7ca1d790c429167c9778f3766c, type: 3}
   m_Name: 
@@ -638,7 +638,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dfc3c009f554cf94c9be01caa6ad5aaa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7dfcc9e9da22f3040a80bfbf6356a593, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -658,8 +658,8 @@ Transform:
   m_GameObject: {fileID: 1331787150}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.21, y: -12.27, z: 0}
-  m_LocalScale: {x: 0.942003, y: 0.9374348, z: 1}
+  m_LocalPosition: {x: -3.37, y: -15.38, z: 0}
+  m_LocalScale: {x: 1.166765, y: 1.0957675, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -747,9 +747,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: LoadNextScene
+      - m_Target: {fileID: 1924591393}
+        m_TargetAssemblyTypeName: SceanTran2, Assembly-CSharp
+        m_MethodName: SwitchScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -924,6 +924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1924591392}
   - component: {fileID: 1924591391}
+  - component: {fileID: 1924591393}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -958,6 +959,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1924591393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924591390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ef0209dd1d0ce4094cdc115e3de2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: Main
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

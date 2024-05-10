@@ -10,6 +10,6 @@ public class SceanTran2 : MonoBehaviour
     public void SwitchScene()
     {
         // 다음 씬으로 전환합니다.
-        SceneManager.LoadScene(nextSceneName);
+        SceneManager.LoadScene(1);
     }
 }
