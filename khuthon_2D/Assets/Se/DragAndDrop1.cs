@@ -11,18 +11,16 @@ public class DragAndDrop1 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
     Vector2 destination3 = new Vector2(15, 0);
     Vector2 destination4 = new Vector2(0, -12);
 
+
     void Update()
     {
         if (collY)
         {
             Debug.Log("Yes");
-            collY = false;
+            
         }
 
-        if (collY == true)
-        {
-            StartCoroutine(aniDocDisapp());
-        }
+  
     }
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
@@ -56,11 +54,5 @@ public class DragAndDrop1 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, I
         transform.position = DefaultPos;
     }
 
-    IEnumerator aniDocDisapp()
-    {
-        yield return new WaitForSeconds(1.5f);
-        //animals.transform.position = Vector3.MoveTowards(animals.transform.position, destination3, speed * Time.deltaTime);
-        yield return new WaitForSeconds(0.5f);
-        //doc.transform.position = Vector3.MoveTowards(doc.transform.position, destination4, speed * Time.deltaTime);
-    }
+   
 }

@@ -20,10 +20,13 @@ public class ButtonClick : MonoBehaviour
     public void clickYes()
     {
         Debug.Log("Yes");
+        GameManager.Instance.yesStamp = true;
+        Debug.Log(GameManager.Instance.yesStamp);
     }
 
     public void clickNo()
     {
         Debug.Log("NO");
+        GameManager.Instance.noStamp = true;
     }
 }

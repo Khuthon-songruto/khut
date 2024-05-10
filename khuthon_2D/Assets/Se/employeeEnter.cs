@@ -1,39 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 
 public class employeeEnter : MonoBehaviour
 {
+    //게임매니저에서 bool 따로 코드 만들고, colly -> 겜메 -> 
     Vector2 destination1 = new Vector2(-3, 0);
     Vector2 destination2 = new Vector2(0, -8);
-    
+    Vector2 destination3 = new Vector2(15, 0);
     Vector3 spawnPosition = new Vector3(0f, 0f, 0f);
-    public static bool DocAppear = true;
     public GameObject doc;
     public GameObject animals;
     public GameObject makeDoc;
     public int speed;
-    public bool collingY;
-
+    public bool isStamped = false;
+    private int currentTextIndex = 0;
 
     [SerializeField]
-    private TextMeshPro[] text;
+    public TextMeshPro[] text;
     //public AudioSource animalAppear;
     //public AudioSource docAppear;
 
-    private void Start()
-    {
-
-    }
-    private void OnEnable()
-    {
-        StartCoroutine(aniDocApp());
-
-    }
-
     private void Update()
     {
+        StartCoroutine(aniDocApp());
         if (Input.GetMouseButtonDown(0)) // 왼쪽 마우스 버튼 클릭 여부 확인
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -43,13 +36,23 @@ public class employeeEnter : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject == doc) // Doc 오브젝트를 클릭했는지 확인
             {
                 // makeDoc 오브젝트를 생성
-                Instantiate(makeDoc, spawnPosition, Quaternion.identity);
+                makeDoc.SetActive(true);
 
                 doc.SetActive(false);
-                DocAppear = true;
             }
         }
-        
+
+        if (GameManager.Instance.yesStamp == true || GameManager.Instance.noStamp == true)
+        {
+            if (!isStamped)
+            {
+                StopCoroutine(aniDocApp());
+                Debug.Log("bb");
+                StartCoroutine(aniDocDisapp());
+                isStamped = true;
+            }
+
+        }
     }
 
     IEnumerator aniDocApp()
@@ -57,8 +60,51 @@ public class employeeEnter : MonoBehaviour
         animals.transform.position = Vector3.MoveTowards(animals.transform.position, destination1, speed * Time.deltaTime);
         yield return new WaitForSeconds(0.5f);
         doc.transform.position = Vector3.MoveTowards(doc.transform.position, destination2, speed * Time.deltaTime);
+
         
     }
 
-    
+    IEnumerator aniDocDisapp()
+    {
+        yield return new WaitForSeconds(1.5f);
+        animals.SetActive(false);
+        //ield return new WaitForSeconds(0.5f);
+        makeDoc.SetActive(false);
+
+        // 여기서 몇 초 기다린 후 초기화 및 aniDocApp() 다시 시작
+        yield return new WaitForSeconds(1.0f); // 예를 들어 3초 후에 초기화 및 재시작한다고 가정
+        ResetVariables(); // 모든 변수를 초기화하는 메소드 호출
+        StartCoroutine(aniDocApp()); // aniDocApp 코루틴 다시 시작
+
+    }
+
+    void ResetVariables()
+    {
+        // 변수 초기화 예시입니다. 실제 게임의 로직에 맞게 조정해야 합니다.
+        isStamped = false;
+        animals.SetActive(true);
+        doc.SetActive(true);
+        makeDoc.SetActive(false);
+        GameManager.Instance.yesStamp = false;
+        GameManager.Instance.noStamp = false;
+        UpdateTextIndex();
+    }
+
+    void UpdateTextIndex()
+    {
+        currentTextIndex++; // 다음 텍스트 요소로 인덱스 업데이트
+        if (currentTextIndex >= text.Length) // 배열의 끝에 도달했으면 처음부터 다시 시작
+        {
+            currentTextIndex = 0;
+        }
+
+        // 모든 텍스트 요소를 비활성화
+        foreach (var t in text)
+        {
+            t.gameObject.SetActive(false);
+        }
+
+        // 현재 인덱스의 텍스트 요소만 활성화
+        text[currentTextIndex].gameObject.SetActive(true);
+    }
 }

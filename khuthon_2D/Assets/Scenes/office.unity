@@ -1562,6 +1562,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   okN: 0
+  gameManager: {fileID: 0}
+  animals: {fileID: 1581617757}
+  doc: {fileID: 1452900655}
+  speed: 50
 --- !u!1 &1001641083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,6 +1884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22484836e04c41a47841ab490a9d1351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collY: 0
   OKY: 0
 --- !u!1 &1340575608
 GameObject:
@@ -2103,7 +2108,7 @@ Transform:
   m_GameObject: {fileID: 1452900655}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.32, y: 0.22, z: 0}
+  m_LocalPosition: {x: 4.07, y: -3.19, z: 0}
   m_LocalScale: {x: 0.35290772, y: 0.32117876, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

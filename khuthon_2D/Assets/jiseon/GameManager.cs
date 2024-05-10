@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
     bool gameover, gamestart;
     int rangetime;
     public Pop Popup;
-
+    public bool yesStamp = false;
+    public bool noStamp = false;
 
     void Start()
     {
